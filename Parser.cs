@@ -32,6 +32,12 @@ namespace MikoVm
                 {
                     line++;
                     state = STATE_START;
+                    // バッファが空でなければトークンを追加
+                    if (buffer.Length > 0)
+                    {
+                        tokens.Add(DetectToken(buffer.ToString()));
+                        buffer.Clear();
+                    }
                     continue;
                 }
 
@@ -41,8 +47,11 @@ namespace MikoVm
                     // ;の場合は文終了なので[開始]状態に遷移
                     state = STATE_START;
                     // トークンを追加
-                    tokens.Add(DetectToken(buffer.ToString()));
-                    buffer.Clear();
+                    if (buffer.Length > 0)
+                    {
+                        tokens.Add(DetectToken(buffer.ToString()));
+                        buffer.Clear();
+                    }
                     tokens.Add(new Token(Token.EnumTokenType.T_END_OF_STATEMENT, ";"));
                     continue;
                 }
