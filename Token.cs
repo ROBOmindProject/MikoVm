@@ -10,7 +10,6 @@ namespace MikoVm
         {
             T_UNKNOWN,              // 不明なトークン
 
-            T_SPACE,                // 半角空白
             T_LIT_INTEGER,          // 整数定数
             T_EQUAL,                // =
             T_EXPRESSION,           // 式

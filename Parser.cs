@@ -181,7 +181,6 @@ namespace MikoVm
         {
             var map = new Dictionary<string, Token>()
             {
-                { " ", new Token(Token.EnumTokenType.T_SPACE, str) },
                 { "=", new Token(Token.EnumTokenType.T_EQUAL, str) },
                 { ";", new Token(Token.EnumTokenType.T_END_OF_STATEMENT, str) },
                 { "print", new Token(Token.EnumTokenType.T_PRINT, str) },
